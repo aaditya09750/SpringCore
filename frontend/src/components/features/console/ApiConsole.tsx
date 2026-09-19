@@ -90,7 +90,6 @@ export const ApiConsole: React.FC<ApiConsoleProps> = ({ onExecute, isLoading, re
 
           <div className="flex flex-col gap-3.5 mb-6">
             <div className="flex items-center gap-2.5 font-sans text-[13.5px] font-medium text-pink">
-              <span className="w-5 h-5 rounded-sm bg-blush flex items-center justify-center shrink-0">
               <span className="w-5 h-5 rounded-full bg-blush flex items-center justify-center shrink-0">
                 <Check className="w-3 h-3 text-navy stroke-[3]" />
               </span>
@@ -98,7 +97,6 @@ export const ApiConsole: React.FC<ApiConsoleProps> = ({ onExecute, isLoading, re
             </div>
 
             <div className="flex items-center gap-2.5 font-sans text-[13.5px] font-medium text-pink">
-              <span className="w-5 h-5 rounded-sm bg-blush flex items-center justify-center shrink-0">
               <span className="w-5 h-5 rounded-full bg-blush flex items-center justify-center shrink-0">
                 <Check className="w-3 h-3 text-navy stroke-[3]" />
               </span>
@@ -106,7 +104,6 @@ export const ApiConsole: React.FC<ApiConsoleProps> = ({ onExecute, isLoading, re
             </div>
 
             <div className="flex items-center gap-2.5 font-sans text-[13.5px] font-medium text-pink">
-              <span className="w-5 h-5 rounded-sm bg-blush flex items-center justify-center shrink-0">
               <span className="w-5 h-5 rounded-full bg-blush flex items-center justify-center shrink-0">
                 <Check className="w-3 h-3 text-navy stroke-[3]" />
               </span>
@@ -114,7 +111,6 @@ export const ApiConsole: React.FC<ApiConsoleProps> = ({ onExecute, isLoading, re
             </div>
 
             <div className="flex items-center gap-2.5 font-sans text-[13.5px] font-medium text-pink">
-              <span className="w-5 h-5 rounded-sm bg-blush flex items-center justify-center shrink-0">
               <span className="w-5 h-5 rounded-full bg-blush flex items-center justify-center shrink-0">
                 <Check className="w-3 h-3 text-navy stroke-[3]" />
               </span>
