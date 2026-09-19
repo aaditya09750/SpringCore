@@ -23,28 +23,28 @@ public class HelloController {
         this.helloService = helloService;
     }
 
-    @GetMapping(value = "/hello", produces = MediaType.TEXT_PLAIN_VALUE)
+    @GetMapping(value = {"/hello", "//hello"}, produces = MediaType.TEXT_PLAIN_VALUE)
     public String hello() {
         return "Hello World!";
     }
 
-    @GetMapping(value = "/api/hello-world", produces = MediaType.TEXT_PLAIN_VALUE)
+    @GetMapping(value = {"/api/hello-world", "//api/hello-world"}, produces = MediaType.TEXT_PLAIN_VALUE)
     public String helloWorld() {
         return "Hello World!";
     }
 
-    @GetMapping("/api/hello")
+    @GetMapping({"/api/hello", "//api/hello"})
     public HelloResponse helloApi() {
         return helloService.getDefaultGreeting();
     }
 
-    @PostMapping("/api/greet")
+    @PostMapping({"/api/greet", "//api/greet"})
     public ResponseEntity<HelloResponse> greet(@Valid @RequestBody GreetingRequest request) {
         HelloResponse response = helloService.createGreeting(request);
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/api/info")
+    @GetMapping({"/api/info", "//api/info"})
     public ResponseEntity<SystemInfoResponse> info() {
         return ResponseEntity.ok(helloService.getSystemTelemetry());
     }

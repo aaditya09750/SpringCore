@@ -1,4 +1,5 @@
-const BACKEND_URL = process.env.BACKEND_URL || process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8080';
+const rawBackendUrl = process.env.BACKEND_URL || process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8080';
+const BACKEND_URL = rawBackendUrl.trim().replace(/\/+$/, '');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
