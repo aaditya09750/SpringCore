@@ -4,6 +4,10 @@ This document provides an exhaustive, in-depth explanation of the technical arch
 
 **Author:** [Aaditya Gunjal](https://github.com/aaditya09750)
 
+### Live Production Deployments
+- **Frontend Console (Vercel):** [https://spring-core.vercel.app](https://spring-core.vercel.app)
+- **Backend REST API (Render):** [https://springcore-api.onrender.com](https://springcore-api.onrender.com)
+
 ---
 
 ## 1. High-Level Architectural Vision
@@ -13,7 +17,7 @@ SpringCore is engineered as a **Clean Layered Architecture** with strict boundar
 ```mermaid
 flowchart TD
     subgraph ClientTier["Client Tier"]
-        UI["Next.js 14 Developer Console (Port 3000)"]
+        UI["Next.js 14 Console (Port 3000 / spring-core.vercel.app)"]
         Static["Embedded Fallback Console (Port 8080)"]
         Curl["cURL / Automated Tests / Ingress"]
     end
@@ -167,11 +171,15 @@ All contracts in SpringCore are modeled using **Java 17 Records**:
 The frontend application located in `frontend/` is built on Next.js 14, TypeScript, and Tailwind CSS.
 
 ### Key Architectural Pillars:
-1. **Zero-Configuration Reverse Proxy:**
-   Next.js `next.config.mjs` configures rewrites to proxy `/api/:path*` and `/actuator/:path*` directly to `http://localhost:8080`, eliminating browser CORS issues in local development.
+1. **Zero-Configuration Reverse Proxy & Trailing-Slash Sanitization:**
+   Next.js `next.config.mjs` configures rewrites to proxy `/api/:path*`, `/actuator/:path*`, and `/hello` directly to `${BACKEND_URL}` (with automatic trailing slash stripping via `rawBackendUrl.trim().replace(/\/+$/, '')`), eliminating browser CORS issues in both local development and cloud production.
 2. **Resilient Response Parser:**
    The `api-client.ts` client reads responses as raw text before attempting JSON parsing. This prevents parse exceptions when calling text endpoints like `/hello`.
-3. **Design System & Aesthetics:**
+3. **Cloud Production Deployment Architecture:**
+   - **Frontend:** Hosted on **Vercel** at [https://spring-core.vercel.app](https://spring-core.vercel.app)
+   - **Backend:** Hosted on **Render** at [https://springcore-api.onrender.com](https://springcore-api.onrender.com) via multi-stage Docker container
+   - **Edge Routing:** Requests to `spring-core.vercel.app/hello` or `/api/*` transparently proxy to the Render backend origin server-to-server.
+4. **Design System & Aesthetics:**
    - Strict 5-color dark palette with high-contrast semantics.
    - Glassmorphic header with `backdrop-filter: blur(16px)` and sticky scroll pinning.
    - Flat, subtle elevation with zero harsh drop shadows on interactive elements.

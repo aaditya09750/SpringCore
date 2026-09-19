@@ -1,20 +1,27 @@
 # SpringCore - Spring Boot 4 Starter & Full-Stack Blueprint
 
-> Production ready Spring Boot 4 reference architecture & decoupled Next.js developer console.
+> Production-ready Spring Boot 4 reference architecture & decoupled Next.js developer console.
 
 ![Java](https://img.shields.io/badge/Java-17%2B-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-4.1.1-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
 ![Next.js](https://img.shields.io/badge/Next.js-14.2-000000?style=for-the-badge&logo=next.js&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![pnpm](https://img.shields.io/badge/pnpm-9.x-F69220?style=for-the-badge&logo=pnpm&logoColor=white)
-![Platform](https://img.shields.io/badge/Platform-Windows%20|%20macOS%20|%20Linux-4A154B?style=for-the-badge)
+[![Live Frontend (Vercel)](https://img.shields.io/badge/Vercel-Live%20Console-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://spring-core.vercel.app)
+[![Live Backend (Render)](https://img.shields.io/badge/Render-Live%20API-46E3B7?style=for-the-badge&logo=render&logoColor=black)](https://springcore-api.onrender.com)
 [![Build](https://img.shields.io/badge/Build-Passing%20(9%2F9%20Tests)-brightgreen?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/aaditya09750/springcore)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge&logo=open-source-initiative&logoColor=white)](LICENSE)
 
 SpringCore is a production-grade Spring Boot 4 foundational starter engineered for students, software engineers, and developers building scalable, enterprise-ready Java microservices. The project features a strict layered architecture, immutable Java 17 records, Jakarta Bean Validation, RFC 7807 problem details error handling, distributed tracing with `X-Correlation-ID`, and an integrated, borderless Next.js developer console.
 
 **Author:** [Aaditya Gunjal](https://github.com/aaditya09750)
+
+### Live Deployments
+
+| Tier | Platform | Status | URL |
+| :--- | :--- | :--- | :--- |
+| **Frontend Console** | Vercel (Edge CDN) | Active | [https://spring-core.vercel.app](https://spring-core.vercel.app) |
+| **Backend REST API** | Render (Docker / Java 17) | Active | [https://springcore-api.onrender.com](https://springcore-api.onrender.com) |
 
 ---
 
@@ -200,6 +207,17 @@ SpringCore/
 
 ## Quick Start
 
+### 🚀 Instant Cloud Demo (Zero Installation Required)
+
+Experience SpringCore immediately in your browser without cloning or running services locally:
+
+- 🖥️ **Live Interactive Web Console:** [https://spring-core.vercel.app](https://spring-core.vercel.app)
+- ⚙️ **Live Backend REST API:** [https://springcore-api.onrender.com/hello](https://springcore-api.onrender.com/hello)
+- 📊 **Live Backend Actuator Health:** [https://springcore-api.onrender.com/actuator/health](https://springcore-api.onrender.com/actuator/health)
+- 🧠 **Live System Telemetry:** [https://springcore-api.onrender.com/api/info](https://springcore-api.onrender.com/api/info)
+
+---
+
 ### Prerequisites
 
 | Requirement | Minimum Version | Download Link |
@@ -304,7 +322,7 @@ flowchart TD
 
 ## Usage Scenarios & Curl Reference
 
-The following scenarios cover testing SpringCore locally via command-line tools.
+The following scenarios cover testing SpringCore either locally (`http://localhost:8080`) or directly against the live cloud production backend (`https://springcore-api.onrender.com`). Simply substitute the base URL.
 
 ### Scenario 1 — Basic Plain Text Greeting (`/hello`)
 
@@ -487,6 +505,8 @@ Refer to [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
 
 | Channel | Details |
 | ------- | ------- |
+| Live Frontend Console | [https://spring-core.vercel.app](https://spring-core.vercel.app) |
+| Live Backend REST API | [https://springcore-api.onrender.com](https://springcore-api.onrender.com) |
 | Project Author | [Aaditya Gunjal (@aaditya09750)](https://github.com/aaditya09750) |
 | Repository Issues | [GitHub Issues](https://github.com/aaditya09750/springcore/issues) |
 | Architecture Blueprint | [ARCHITECTURE.md](ARCHITECTURE.md) |

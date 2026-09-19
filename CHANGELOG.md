@@ -20,14 +20,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.0.0] - 2026-09-20
 
 ### Added
+- **Live Cloud Production Deployments:**
+  - **Frontend Console on Vercel:** [https://spring-core.vercel.app](https://spring-core.vercel.app) with edge proxying and responsive dark mode UI.
+  - **Backend REST API on Render:** [https://springcore-api.onrender.com](https://springcore-api.onrender.com) running multi-stage Docker container on Java 17.
+  - **Edge Proxy Trailing-Slash Sanitizer:** Hardened `next.config.mjs` with `rawBackendUrl.trim().replace(/\/+$/, '')` to prevent `//hello` double-slash URL concatenation errors.
+  - **Multi-Segment Path Aliasing:** Added `{"/hello", "//hello"}` mapping to `HelloController` to handle double-slash proxy variations gracefully.
+  - **Global CORS Authorization:** Configured `allowedOriginPatterns("*")` in `WebConfig.java` to support universal cross-origin requests.
 - **SpringCore Branding & Renaming:** Official repository renaming to `SpringCore` across backend `pom.xml`, Maven artifactId, Spring Boot configuration, Next.js metadata, and documentation.
 - **Resilient Content Negotiation & Non-Breaking Parser:** Added `produces = MediaType.TEXT_PLAIN_VALUE` support and implemented resilient dual-mode response parsing in both the embedded console (`index.html`) and Next.js client (`api-client.ts`), ensuring plain-text endpoints (`/hello`) and JSON payloads (`/api/greet`, `/api/info`) execute flawlessly without client deserialization errors.
 - **Sticky Glassmorphic Navbar:** Pinned floating header with smooth frosted-glass backdrop blur (`backdrop-filter: blur(16px)`) and responsive mobile menu.
 - **Custom Dropdown Component:** Engineered a keyboard-accessible, sleek custom dropdown for HTTP method selection (`GET`, `POST`, `PUT`, `DELETE`).
 - **Custom Slim Scrollbar:** Cross-browser slim scrollbars matching the 5-color dark palette across JSON payload editors, response inspectors, and page windows.
 - **Comprehensive Documentation Suite:**
-  - `README.md`: Complete enterprise guide with ASCII diagrams, scenario walkthroughs 1-10, architecture diagrams, and quick-start instructions.
-  - `ARCHITECTURE.md`: Deep technical design blueprint detailing clean layering, request lifecycle, filter mechanics, and observability.
+  - `README.md`: Complete enterprise guide with ASCII diagrams, scenario walkthroughs 1-10, architecture diagrams, live cloud deployment links, and quick-start instructions.
+  - `ARCHITECTURE.md`: Deep technical design blueprint detailing clean layering, request lifecycle, filter mechanics, and cloud production architecture.
   - `CONTRIBUTING.md`: Contributor workflow, branching strategy, Conventional Commits guidelines, and testing requirements.
   - `CHANGELOG.md`: Detailed version history following Keep a Changelog standards.
   - `SECURITY.md`: Vulnerability reporting process and security posture.
@@ -42,6 +48,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Ignored Build Artifacts:** Enhanced `.gitignore` to comprehensively ignore `frontend/node_modules/`, `frontend/.next/`, `.pnpm-store/`, and local test logs.
 
 ### Fixed
+- Fixed HTTP 500 error on Vercel frontend caused by trailing slash on `BACKEND_URL` creating double-slash request routes (`//hello`).
+- Fixed JSX unclosed tag syntax error in `ApiConsole.tsx` blocking Vercel production build.
 - Fixed browser JSON parse syntax errors when invoking plain text endpoints (`/hello`, `/api/hello-world`).
 - Fixed port binding conflict on 8080 by standardizing process daemon controls.
 

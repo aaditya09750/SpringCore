@@ -118,6 +118,17 @@ pnpm lint
 pnpm build
 ```
 
+### Live Cloud Environments
+
+When developing features or testing deployments, you can refer to our live cloud production environments:
+
+| Component | Platform | URL | Purpose |
+| :--- | :--- | :--- | :--- |
+| **Frontend Console** | Vercel | [https://spring-core.vercel.app](https://spring-core.vercel.app) | Live Next.js developer console with edge proxying |
+| **Backend REST API** | Render | [https://springcore-api.onrender.com](https://springcore-api.onrender.com) | Live Spring Boot 4 REST API running in Docker |
+
+> **Note:** For Vercel deployments, the `BACKEND_URL` environment variable is set to `https://springcore-api.onrender.com`. The Next.js reverse proxy handles trailing slash normalization automatically.
+
 ---
 
 ## Coding Standards & Architectural Guidelines
